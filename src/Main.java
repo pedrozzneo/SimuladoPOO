@@ -5,9 +5,14 @@ public class Main {
     static void main() {
 
         UserAccount pedrozzneo = new UserAccount("pedrozzneo@gmail.com", "pedrozzneo");
+        UserAccount lucas = new UserAccount("lucas@gmail.com", "lucas");
+
+        pedrozzneo.acceptFollower(lucas);
+        lucas.acceptFollower(pedrozzneo);
+
         pedrozzneo.publish("1");
-        pedrozzneo.clapPost(0);
-        pedrozzneo.clapPost(0);
+        lucas.clapPost(0);
+        lucas.clapPost(0);
         pedrozzneo.publish("2");
         pedrozzneo.publish("3");
         pedrozzneo.publish("4");

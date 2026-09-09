@@ -4,6 +4,7 @@ public class UserAccount {
     private String email;
     private String username;
     private final UserAccount[] followers = new UserAccount[1000];
+    private int followerSize = 0;
     private Post[] timeline = new Post[10];
     private int timeLineSize = 0;
     private int timelineNextIndex = 0;
@@ -15,15 +16,20 @@ public class UserAccount {
         this.username = username;
     }
 
+    public void acceptFollower(UserAccount newFollower){
+        followers[followerSize] = newFollower;
+        followerSize++;
+    }
+
     public void clapPost(int postIdx){
-        if(postIdx <= timeLineSize){
+        if(postIdx >= timeLineSize){
             return;
         }
         timeline[postIdx].clap();
     }
 
     public void booPost(int postIdx){
-        if(postIdx <= timeLineSize){
+        if(postIdx >= timeLineSize){
             return;
         }
         timeline[postIdx].boo();
@@ -41,15 +47,15 @@ public class UserAccount {
     }
 
     public void updateTimeline(Post newPost){
-        for (UserAccount follower : followers) {
+        for (int i = 0; i < followerSize; i++) {
             if(timelineNextIndex < 10){
-                follower.timeline[follower.timelineNextIndex] = newPost;
-                follower.timelineNextIndex++;
-                follower.timeLineSize++;
+                followers[i].timeline[followers[i].timelineNextIndex] = newPost;
+                followers[i].timelineNextIndex++;
+                followers[i].timeLineSize++;
             }
             else{
-                follower.timeline[0] = newPost;
-                follower.timelineNextIndex = 1;
+                followers[i].timeline[0] = newPost;
+                followers[i].timelineNextIndex = 1;
             }
         }
     }
@@ -58,6 +64,8 @@ public class UserAccount {
         Post post = new Post(this, quote);
         posts[postsCount] = post;
         postsCount++;
+
+        updateTimeline(post);
     }
 
     public String getEmail(){
