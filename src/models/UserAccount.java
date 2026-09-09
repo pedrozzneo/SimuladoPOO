@@ -15,6 +15,20 @@ public class UserAccount {
         this.username = username;
     }
 
+    public void clapPost(int postIdx){
+        if(postIdx <= timeLineSize){
+            return;
+        }
+        timeline[postIdx].clap();
+    }
+
+    public void booPost(int postIdx){
+        if(postIdx <= timeLineSize){
+            return;
+        }
+        timeline[postIdx].boo();
+    }
+
     public void delete(int postIdx){
         if(postsCount == 0){
             return;

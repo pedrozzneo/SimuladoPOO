@@ -6,6 +6,8 @@ public class Main {
 
         UserAccount pedrozzneo = new UserAccount("pedrozzneo@gmail.com", "pedrozzneo");
         pedrozzneo.publish("1");
+        pedrozzneo.clapPost(0);
+        pedrozzneo.clapPost(0);
         pedrozzneo.publish("2");
         pedrozzneo.publish("3");
         pedrozzneo.publish("4");
