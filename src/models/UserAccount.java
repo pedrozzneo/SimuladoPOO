@@ -14,14 +14,14 @@ public class UserAccount {
         this.username = username;
     }
 
-    public void updateTimeline(Post post){
+    public void updateTimeline(Post newPost){
         for (UserAccount follower : followers) {
             if(timelineNextIndex < 10){
-                follower.timeline[follower.timelineNextIndex] = post;
+                follower.timeline[follower.timelineNextIndex] = newPost;
                 follower.timelineNextIndex++;
             }
             else{
-                follower.timeline[0] = post;
+                follower.timeline[0] = newPost;
                 follower.timelineNextIndex = 1;
             }
         }
