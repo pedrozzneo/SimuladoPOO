@@ -44,4 +44,12 @@ public class Post {
     public String show(){
         return String.format("\n[%s] %s says \"%s\" / Claps: %d  Boos: %d\n", date.toString(), user.getUsername(), quote, claps, boos);
     }
+
+    public void clap(){
+        claps++;
+    }
+
+    public void boo(){
+        boos++;
+    }
 }
