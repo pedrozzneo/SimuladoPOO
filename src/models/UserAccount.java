@@ -3,6 +3,9 @@ package models;
 public class UserAccount {
     private String email;
     private String username;
+    private final UserAccount[] followers = new UserAccount[10];
+    private Post[] timeline = new Post[1000];
+    private Post[] posts = new Post[1000];
 
     public UserAccount(String email, String username) {
         this.email = email;
