@@ -7,9 +7,11 @@ public class Post {
     private LocalDate date;
     private int claps;
     private int boos;
+    private UserAccount user;
 
-    public Post(String quote) {
+    public Post(UserAccount user, String quote) {
         this.quote = quote;
+        this.user = user;
         date = LocalDate.now();
         claps = 0;
         boos = 0;
@@ -39,11 +41,7 @@ public class Post {
         this.date = date;
     }
 
-    public void setClaps(int claps) {
-        this.claps = claps;
-    }
+    public String show(){
 
-    public void setBoos(int boos) {
-        this.boos = boos;
     }
 }
