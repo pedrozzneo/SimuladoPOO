@@ -5,7 +5,7 @@ public class UserAccount {
     private String username;
     private final UserAccount[] followers = new UserAccount[1000];
     private Post[] timeline = new Post[10];
-    private int timelineCount = 0;
+    private int timelineNextIndex = 0;
     private Post[] posts = new Post[1000];
     private int postsCount = 0;
 
@@ -15,7 +15,16 @@ public class UserAccount {
     }
 
     public void updateTimeline(Post post){
-
+        for (UserAccount follower : followers) {
+            if(timelineNextIndex < 10){
+                follower.timeline[follower.timelineNextIndex] = post;
+                follower.timelineNextIndex++;
+            }
+            else{
+                follower.timeline[0] = post;
+                follower.timelineNextIndex = 1;
+            }
+        }
     }
 
     public void publish(String quote){
