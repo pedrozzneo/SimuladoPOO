@@ -3,8 +3,8 @@ package models;
 public class UserAccount {
     private String email;
     private String username;
-    private final UserAccount[] followers = new UserAccount[10];
-    private Post[] timeline = new Post[1000];
+    private final UserAccount[] followers = new UserAccount[1000];
+    private Post[] timeline = new Post[10];
     private int timelineCount = 0;
     private Post[] posts = new Post[1000];
     private int postsCount = 0;
@@ -12,6 +12,10 @@ public class UserAccount {
     public UserAccount(String email, String username) {
         this.email = email;
         this.username = username;
+    }
+
+    public void updateTimeline(Post post){
+
     }
 
     public void publish(String quote){
