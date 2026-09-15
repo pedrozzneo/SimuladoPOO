@@ -27,6 +27,22 @@ public class UserAccount {
         followerSize++;
     }
 
+    public void blockFollower(UserAccount follower){
+        if(followerSize == 0){
+            return;
+        }
+
+        for (int i = 0; i < followerSize; i++) {
+            if(followers[i].equals(follower)){
+                for (int j = i; j < followerSize - 1; j++) {
+                    followers[j] = followers[j+1];
+                }
+                followers[followerSize-1] = null;
+                followerSize--;
+            }
+        }
+    }
+
     public void clapPost(int postIdx){
         if(postIdx >= timeLineSize){
             return;

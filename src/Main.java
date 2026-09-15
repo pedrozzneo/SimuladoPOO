@@ -6,8 +6,13 @@ public class Main {
 
         UserAccount pedrozzneo = new UserAccount("pedrozzneo@gmail.com", "pedrozzneo");
         UserAccount lucas = new UserAccount("lucas@gmail.com", "lucas");
+        UserAccount caio = new UserAccount("caio@gmail.com", "caio");
+        UserAccount matheus = new UserAccount("matheus@gmail.com", "matheus");
 
         pedrozzneo.acceptFollower(lucas);
+        pedrozzneo.acceptFollower(caio);
+        pedrozzneo.acceptFollower(matheus);
+        pedrozzneo.blockFollower(matheus);
         lucas.acceptFollower(pedrozzneo);
 
         pedrozzneo.publish("1");
