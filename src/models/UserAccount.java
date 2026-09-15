@@ -3,17 +3,23 @@ package models;
 public class UserAccount {
     private String email;
     private String username;
-    private final UserAccount[] followers = new UserAccount[1000];
-    private int followerSize = 0;
-    private Post[] timeline = new Post[10];
-    private int timeLineSize = 0;
-    private int timelineNextIndex = 0;
-    private Post[] posts = new Post[1000];
-    private int postsCount = 0;
+
+    private final UserAccount[] followers;
+    private int followerSize;
+
+    private final Post[] timeline;
+    private int timeLineSize;
+    private int timelineNextIndex;
+
+    private final Post[] posts;
+    private int postsCount;
 
     public UserAccount(String email, String username) {
         this.email = email;
         this.username = username;
+        followers = new UserAccount[1000];
+        timeline = new Post[10];
+        posts = new Post[1000];
     }
 
     public void acceptFollower(UserAccount newFollower){
