@@ -71,15 +71,10 @@ public class UserAccount {
 
     public void updateTimeline(Post newPost){
         for (int i = 0; i < followerSize; i++) {
-            if(timelineNextIndex < 10){
-                followers[i].timeline[followers[i].timelineNextIndex] = newPost;
+                followers[i].timeline[(followers[i].timelineNextIndex)%10] = newPost;
                 followers[i].timelineNextIndex++;
-                followers[i].timeLineSize++;
-            }
-            else{
-                followers[i].timeline[0] = newPost;
-                followers[i].timelineNextIndex = 1;
-            }
+
+                if(timeLineSize < 10) followers[i].timeLineSize++;
         }
     }
 
