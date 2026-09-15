@@ -65,6 +65,7 @@ public class UserAccount {
         for (int i = postIdx; i < postsCount - 1; i++) {
             posts[i] = posts[i + 1];
         }
+        posts[postsCount-1] = null;
         postsCount--;
     }
 
